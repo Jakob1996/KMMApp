@@ -1,9 +1,15 @@
 package com.example.kmmapp
+actual class Platform {
+    actual val osName: String
+        get() = UIDevice.currentDevice.systemName
+    actual val osVersion: String
+        get() = TODO("Not yet implemented")
+    actual val deviceModel: String
+        get() = TODO("Not yet implemented")
+    actual val density: Int
+        get() = TODO("Not yet implemented")
 
-import platform.UIKit.UIDevice
+    actual fun logSystemInfo() {
+    }
 
-class IOSPlatform: Platform {
-    override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
 }
-
-actual fun getPlatform(): Platform = IOSPlatform()
