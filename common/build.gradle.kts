@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.sqlDelight)
     kotlin("plugin.serialization") version "1.9.20"
     id("co.touchlab.skie") version "0.4.19"
 }
@@ -29,26 +30,38 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         commonMain.dependencies {
+            //Coroutines
             implementation(libs.kotlinx.coroutines.core)
+            //Ktor
             implementation(libs.io.ktor.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.ktor.client.core)
+            //DataTime
             implementation(libs.kotlinx.datetime)
-            implementation(libs.koin.androidx.compose)
-            implementation(libs.koin.android)
+            //Koin
             implementation(libs.koin.core)
+            //SqlDelight coroutines
+            implementation(libs.coroutines.extensions)
         }
 
         androidMain.dependencies {
+            //ViewModel
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            //Ktor
             implementation(libs.ktor.client.android)
+            //SqlDelight
+            implementation(libs.android.driver)
         }
 
         iosMain.dependencies {
+            //Ktor
             implementation(libs.ktor.client.darwin)
+            //SqlDelight
+            implementation(libs.native.driver)
+
         }
 
         commonTest.dependencies {
@@ -62,5 +75,13 @@ android {
     compileSdk = 34
     defaultConfig {
         minSdk = 26
+    }
+}
+
+sqldelight {
+    databases {
+        create("KMMAppDatabase") {
+            packageName.set("com.example.kmmapp.db")
+        }
     }
 }

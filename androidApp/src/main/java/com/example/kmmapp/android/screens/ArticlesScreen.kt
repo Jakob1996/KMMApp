@@ -32,10 +32,11 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.kmmapp.articles.Article
 import com.example.kmmapp.articles.ArticlesViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ArticlesScreen(
-    articlesViewModel: ArticlesViewModel,
+    articlesViewModel: ArticlesViewModel = koinViewModel(),
     onAboutButtonClick: () -> Unit
 ) {
 
@@ -67,7 +68,7 @@ fun ArticlesScreen(
 @Composable
 private fun AppBar(onAboutButtonClick: () -> Unit) {
     TopAppBar(title = { Text(text = "Articles") }, actions = {
-        IconButton(onClick = onAboutButtonClick){
+        IconButton(onClick = onAboutButtonClick) {
             Icon(imageVector = Icons.Outlined.Info, contentDescription = "About Device Button")
         }
     })
