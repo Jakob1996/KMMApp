@@ -5,6 +5,4 @@ data class Article(
     val description: String,
     val date: String,
     val imageUrl: String
-) {
-
-}
+)

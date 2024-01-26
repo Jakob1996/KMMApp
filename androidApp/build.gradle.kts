@@ -42,7 +42,7 @@ dependencies {
     implementation(projects.common)
     implementation(libs.compose.ui)
     implementation(libs.coil.compose)
-
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)

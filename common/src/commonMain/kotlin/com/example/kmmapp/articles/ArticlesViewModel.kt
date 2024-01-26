@@ -1,55 +1,47 @@
 package com.example.kmmapp.articles
 
 import com.example.kmmapp.BaseViewModel
-import kotlinx.coroutines.delay
+import io.ktor.client.HttpClient
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class ArticlesViewModel : BaseViewModel() {
+import kotlinx.serialization.json.Json
+
+class ArticlesViewModel() : BaseViewModel() {
+
+    private var useCase: ArticlesUseCase
 
     private val _articlesState: MutableStateFlow<ArticlesState> =
         MutableStateFlow(ArticlesState(loading = true))
     val articlesState: StateFlow<ArticlesState> get() = _articlesState
 
     init {
+        val httpClient = HttpClient {
+            install(ContentNegotiation){
+                json(Json{
+                    prettyPrint = true
+                    isLenient = true
+                    ignoreUnknownKeys = true
+                })
+            }
+        }
+
+        val service = ArticlesService(httpClient)
+
+        useCase = ArticlesUseCase(service)
+
         getArticles()
     }
 
     private fun getArticles() {
         scope.launch {
-            delay(1500)
-            _articlesState.emit(ArticlesState(error = "Some errors"))
-            delay(1500)
-            val fetchedArticles = fetchArticles()
+            val fetchedArticles = useCase.getArticles()
             _articlesState.emit(ArticlesState(articles = fetchedArticles))
         }
     }
-
-    private suspend fun fetchArticles(): List<Article> {
-        return mockArticles
-    }
-
-    private val mockArticles = listOf(
-        Article(
-            "Stock market today: Live updates - CNBC",
-            "Futures were higher in premarket trading as Wall Street tried to regain its footing",
-            "2023-02-11",
-            "https://picsum.photos/id/237/200/300"
-        ),
-        Article(
-            "Stock market today: Live updates - CNBC",
-            "Futures were higher in premarket trading as Wall Street tried to regain its footing",
-            "2023-02-11",
-            "https://picsum.photos/200/300?grayscale"
-        ),
-        Article(
-            "Stock market today: Live updates - CNBC",
-            "Futures were higher in premarket trading as Wall Street tried to regain its footing",
-            "2023-02-11",
-            "https://picsum.photos/200/300/?blur"
-        )
-    )
 }
 
 data class ArticlesState(

@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
+    kotlin("plugin.serialization") version "1.9.20"
+    id("co.touchlab.skie") version "0.4.19"
 }
 
 kotlin {
@@ -31,14 +33,22 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.io.ktor.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.ktor.client.core)
+            implementation(libs.kotlinx.datetime)
+            implementation(libs.koin.androidx.compose)
+            implementation(libs.koin.android)
+            implementation(libs.koin.core)
         }
 
         androidMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            implementation(libs.ktor.client.android)
         }
 
         iosMain.dependencies {
-
+            implementation(libs.ktor.client.darwin)
         }
 
         commonTest.dependencies {

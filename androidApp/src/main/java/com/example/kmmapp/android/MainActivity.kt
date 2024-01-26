@@ -10,7 +10,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.kmmapp.android.screens.ArticlesScreen
 import com.example.kmmapp.articles.ArticlesViewModel
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ArticlesScreen(articlesViewModel)
+                    AppScaffold(articlesViewModel = articlesViewModel)
                 }
             }
         }
