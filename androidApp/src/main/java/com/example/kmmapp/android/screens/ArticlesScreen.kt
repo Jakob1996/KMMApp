@@ -32,6 +32,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.kmmapp.articles.Article
 import com.example.kmmapp.articles.ArticlesViewModel
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshState
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -46,10 +48,6 @@ fun ArticlesScreen(
         AppBar(onAboutButtonClick)
 
         when {
-            articlesState.value.loading -> {
-                Loader()
-            }
-
             articlesState.value.error != null -> {
                 articlesState.value.error?.let {
                     ErrorMessage(it)
@@ -57,11 +55,10 @@ fun ArticlesScreen(
             }
 
             articlesState.value.articles.isNotEmpty() -> {
-                ArticlesListView(articlesViewModel.articlesState.value.articles)
+                ArticlesListView(articlesViewModel)
             }
         }
     }
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -96,10 +93,14 @@ fun ErrorMessage(message: String) {
 }
 
 @Composable
-fun ArticlesListView(articles: List<Article>) {
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(articles) {
-            ArticlesItemView(it)
+fun ArticlesListView(viewModel: ArticlesViewModel) {
+    SwipeRefresh(
+        state = SwipeRefreshState(viewModel.articlesState.value.loading),
+        onRefresh = { viewModel.getArticles(true) }) {
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(viewModel.articlesState.value.articles) {
+                ArticlesItemView(it)
+            }
         }
     }
 }

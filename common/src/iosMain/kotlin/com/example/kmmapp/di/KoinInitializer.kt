@@ -7,7 +7,7 @@ import org.koin.core.context.startKoin
 
 fun initKoin() {
 
-    val modules = commonKoinModules
+    val modules = commonKoinModules + databaseModule
 
     startKoin {
         modules(modules)

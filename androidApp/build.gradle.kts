@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.accompanist.swiperefresh)
     implementation(projects.common)
     implementation(libs.compose.ui)
     implementation(libs.coil.compose)

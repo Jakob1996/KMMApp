@@ -82,6 +82,7 @@ sqldelight {
     databases {
         create("KMMAppDatabase") {
             packageName.set("com.example.kmmapp.db")
+            version = 1
         }
     }
 }
