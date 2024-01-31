@@ -39,6 +39,8 @@ kotlin {
             implementation(libs.io.ktor.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.ktor.client.core)
+//            implementation(libs.ktor.client.logging.native)
+
             //DataTime
             implementation(libs.kotlinx.datetime)
             //Koin

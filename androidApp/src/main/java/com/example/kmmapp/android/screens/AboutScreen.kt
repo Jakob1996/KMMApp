@@ -17,6 +17,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.kmmapp.Platform
 
@@ -68,4 +69,10 @@ private fun RowView(title: String, subtitle: String) {
         Text(text = subtitle, style = MaterialTheme.typography.bodyLarge)
     }
     Divider()
+}
+
+@Preview
+@Composable
+fun AboutScreenPreview() {
+    AboutScreen({})
 }

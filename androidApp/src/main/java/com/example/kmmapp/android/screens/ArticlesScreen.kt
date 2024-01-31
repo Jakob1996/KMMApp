@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.List
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -26,10 +27,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.kmmapp.android.screens.views.errors.ErrorMessage
 import com.example.kmmapp.articles.Article
 import com.example.kmmapp.articles.ArticlesViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
@@ -39,13 +40,14 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun ArticlesScreen(
     articlesViewModel: ArticlesViewModel = koinViewModel(),
-    onAboutButtonClick: () -> Unit
+    onAboutButtonClick: () -> Unit,
+    onSourceButtonClick: () -> Unit
 ) {
 
     val articlesState = articlesViewModel.articlesState.collectAsState()
 
     Column {
-        AppBar(onAboutButtonClick)
+        AppBar(onAboutButtonClick, onSourceButtonClick)
 
         when {
             articlesState.value.error != null -> {
@@ -63,8 +65,12 @@ fun ArticlesScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AppBar(onAboutButtonClick: () -> Unit) {
+private fun AppBar(onAboutButtonClick: () -> Unit, onSourceButtonClick: () -> Unit) {
     TopAppBar(title = { Text(text = "Articles") }, actions = {
+        IconButton(onClick = onSourceButtonClick) {
+            Icon(imageVector = Icons.Outlined.List, contentDescription = "Sources")
+        }
+
         IconButton(onClick = onAboutButtonClick) {
             Icon(imageVector = Icons.Outlined.Info, contentDescription = "About Device Button")
         }
@@ -78,16 +84,6 @@ fun Loader() {
             modifier = Modifier.width(64.dp),
             color = MaterialTheme.colorScheme.surfaceVariant,
             trackColor = MaterialTheme.colorScheme.secondary
-        )
-    }
-}
-
-@Composable
-fun ErrorMessage(message: String) {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(
-            text = message,
-            style = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center)
         )
     }
 }

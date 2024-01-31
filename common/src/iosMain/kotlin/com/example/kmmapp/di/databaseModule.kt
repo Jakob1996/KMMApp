@@ -5,6 +5,7 @@ import com.example.kmmapp.db.KMMAppDatabase
 import org.koin.dsl.module
 
 val databaseModule = module {
+
     single { DatabaseDriverFactory().createDriver() }
 
     single { KMMAppDatabase(get()) }
