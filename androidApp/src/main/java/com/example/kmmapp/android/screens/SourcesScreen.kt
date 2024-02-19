@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.kmmapp.android.screens.views.errors.ErrorMessage
 import com.example.kmmapp.android.screens.views.toolbars.ToolbarWithBackIcon
-import com.example.kmmapp.features.sources.domain.Source
-import com.example.kmmapp.features.sources.presentation.SourcesViewModel
+import com.example.kmmapp.domain.entities.Source
+import com.example.kmmapp.presentation.SourcesViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

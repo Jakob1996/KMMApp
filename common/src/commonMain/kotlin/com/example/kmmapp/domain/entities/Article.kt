@@ -1,4 +1,4 @@
-package com.example.kmmapp.features.articles.domain
+package com.example.kmmapp.domain.entities
 
 data class Article(
     val title: String,

@@ -31,8 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.kmmapp.android.screens.views.errors.ErrorMessage
-import com.example.kmmapp.features.articles.domain.Article
-import com.example.kmmapp.features.articles.presentation.ArticlesViewModel
+import com.example.kmmapp.domain.entities.Article
+import com.example.kmmapp.presentation.ArticlesViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshState
 import org.koin.androidx.compose.koinViewModel

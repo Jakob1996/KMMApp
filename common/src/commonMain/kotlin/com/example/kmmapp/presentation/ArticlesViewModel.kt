@@ -1,8 +1,8 @@
-package com.example.kmmapp.features.articles.presentation
+package com.example.kmmapp.presentation
 
 import com.example.kmmapp.core.BaseViewModel
-import com.example.kmmapp.features.articles.domain.ArticlesUseCase
-import com.example.kmmapp.features.articles.domain.Article
+import com.example.kmmapp.domain.usecases.ArticlesUseCase
+import com.example.kmmapp.domain.entities.Article
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

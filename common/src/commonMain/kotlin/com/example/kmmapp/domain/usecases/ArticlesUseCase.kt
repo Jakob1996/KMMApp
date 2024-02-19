@@ -1,7 +1,8 @@
-package com.example.kmmapp.features.articles.domain
+package com.example.kmmapp.domain.usecases
 
-import com.example.kmmapp.features.articles.data.ArticleRaw
-import com.example.kmmapp.features.articles.data.ArticlesRepository
+import com.example.kmmapp.domain.entities.Article
+import com.example.kmmapp.data.models.ArticleRaw
+import com.example.kmmapp.domain.repositories.ArticlesRepository
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone

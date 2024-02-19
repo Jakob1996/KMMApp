@@ -1,4 +1,8 @@
-package com.example.kmmapp.features.articles.data
+package com.example.kmmapp.domain.repositories
+
+import com.example.kmmapp.data.datasource.ArticlesDataSource
+import com.example.kmmapp.data.models.ArticleRaw
+import com.example.kmmapp.data.services.ArticlesService
 
 class ArticlesRepository(
     private val dataSource: ArticlesDataSource,

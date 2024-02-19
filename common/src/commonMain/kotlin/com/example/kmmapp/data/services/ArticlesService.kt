@@ -1,6 +1,8 @@
-package com.example.kmmapp.features.articles.data
+package com.example.kmmapp.data.services
 
 import com.example.kmmapp.api.ApiSettings
+import com.example.kmmapp.data.models.ArticleRaw
+import com.example.kmmapp.data.models.ArticlesResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get

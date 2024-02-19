@@ -1,7 +1,7 @@
 package com.example.kmmapp.di
 
-import com.example.kmmapp.features.articles.di.articlesModule
-import com.example.kmmapp.features.sources.di.sourcesModule
+import com.example.kmmapp.di.datasource.articlesModule
+import com.example.kmmapp.di.datasource.sourcesModule
 
 val commonKoinModules = listOf(
     articlesModule,

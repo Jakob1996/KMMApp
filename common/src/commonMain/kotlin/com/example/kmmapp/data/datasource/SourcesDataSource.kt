@@ -1,4 +1,4 @@
-package com.example.kmmapp.features.sources.data
+package com.example.kmmapp.data.datasource
 
 import com.example.kmmapp.db.KMMAppDatabase
 

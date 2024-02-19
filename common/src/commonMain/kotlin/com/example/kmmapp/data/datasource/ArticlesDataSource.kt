@@ -1,6 +1,7 @@
-package com.example.kmmapp.features.articles.data
+package com.example.kmmapp.data.datasource
 
 import com.example.kmmapp.db.KMMAppDatabase
+import com.example.kmmapp.data.models.ArticleRaw
 
 class ArticlesDataSource(private val dataBase: KMMAppDatabase) {
 
