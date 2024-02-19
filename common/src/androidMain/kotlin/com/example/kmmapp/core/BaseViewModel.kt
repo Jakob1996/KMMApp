@@ -1,4 +1,4 @@
-package com.example.kmmapp
+package com.example.kmmapp.core
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

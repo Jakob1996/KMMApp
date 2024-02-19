@@ -1,4 +1,7 @@
-package com.example.kmmapp.sources
+package com.example.kmmapp.features.sources.domain
+
+import com.example.kmmapp.features.sources.data.SourcesRepository
+import com.example.kmmapp.features.sources.data.SourcesRow
 
 class SourcesUseCase(private val repository: SourcesRepository) {
 

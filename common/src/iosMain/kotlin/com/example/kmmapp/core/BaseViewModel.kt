@@ -1,4 +1,4 @@
-package com.example.kmmapp
+package com.example.kmmapp.core
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

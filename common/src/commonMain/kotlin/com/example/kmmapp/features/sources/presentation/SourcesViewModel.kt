@@ -1,6 +1,8 @@
-package com.example.kmmapp.sources
+package com.example.kmmapp.features.sources.presentation
 
-import com.example.kmmapp.BaseViewModel
+import com.example.kmmapp.core.BaseViewModel
+import com.example.kmmapp.features.sources.domain.Source
+import com.example.kmmapp.features.sources.domain.SourcesUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

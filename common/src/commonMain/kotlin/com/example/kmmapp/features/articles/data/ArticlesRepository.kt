@@ -1,10 +1,9 @@
-package com.example.kmmapp.articles
+package com.example.kmmapp.features.articles.data
 
 class ArticlesRepository(
     private val dataSource: ArticlesDataSource,
     private val articlesService: ArticlesService
 ) {
-
     suspend fun getArticles(forceFetch: Boolean): List<ArticleRaw> {
 
         if (forceFetch) {

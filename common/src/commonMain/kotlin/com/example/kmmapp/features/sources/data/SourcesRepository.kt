@@ -1,4 +1,4 @@
-package com.example.kmmapp.sources
+package com.example.kmmapp.features.sources.data
 
 class SourcesRepository(private val service: SourcesService) {
 

@@ -1,4 +1,4 @@
-package com.example.kmmapp.sources
+package com.example.kmmapp.features.sources.domain
 
 data class Source(
     val title: String,

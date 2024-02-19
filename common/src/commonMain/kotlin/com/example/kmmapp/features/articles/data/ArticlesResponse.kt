@@ -1,4 +1,4 @@
-package com.example.kmmapp.articles
+package com.example.kmmapp.features.articles.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

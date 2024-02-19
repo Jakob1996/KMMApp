@@ -1,6 +1,6 @@
-package com.example.kmmapp.articles
+package com.example.kmmapp.features.articles.data
 
-import com.example.kmmapp.ApiSettings
+import com.example.kmmapp.api.ApiSettings
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
